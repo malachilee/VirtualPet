@@ -13,6 +13,7 @@ namespace VirtualPet
         private int age;
         private int hunger;
         private int thrist;
+        private int sleep;
         private string name;
 
      // Declare Properties
@@ -35,6 +36,12 @@ namespace VirtualPet
             set { this.thrist = value; }
         }
 
+        public int Sleep
+        {
+            get { return this.sleep; }
+            set { this.sleep = value; }
+        }
+
         public string Name
         {
             get { return this.name; }
@@ -48,42 +55,60 @@ namespace VirtualPet
          // Default Constructor
         }
 
-        public Virtual_Pet(int age, int hunger, int thrist, string name)
+        public Virtual_Pet(int age, int hunger, int thrist, int sleep, string name)
         {
             this.Age = age;
             this.Hunger = hunger;
+            this.Thrist = thrist;
+            this.Sleep = sleep;
             this.Name = name;
         }
 
      // Declare Methods
 
-        public void Tick()
+        public void Tick()// Tick Method
         {
-            Age++;
+            this.Age++;
             if(Age > 20)
-            {
-                Console.WriteLine("Your pet died from old age.");
-            }
-
-            Hunger += 12;
-            if(Hunger < 0)
-            {
-                Console.WriteLine("Your pet died from starvation.");
-            }
-       
+              {
+                Console.WriteLine("{0} died from old age.", this.Name);
+              }
+            this.Hunger += 6;
+            if(Hunger == 100)
+              {
+                Console.WriteLine("{0} died from starvation.", this.Name);
+              }
+            this.Thrist += 10;
+            if(Thrist == 100)
+              {
+                Console.WriteLine("{0} died from dehydration.", this.Name);
+              }
+            this.Sleep += 8;
+            if(Sleep == 100)
+              {
+                Console.WriteLine("{0} died from sleep deprivation.", this.Name);
+              }
         }
+            
 
         public void Feed()
-            {
+        {
             this.Hunger -= 30;
             this.Thrist += 20;
             Console.WriteLine("{0} says thanks, that tasted great!", this.Name);
-            }
+        }
 
         public void GiveWater()
         {
             this.Thrist -= 50;
+            Console.WriteLine("{0} says that was refreshing!", this.Name);
         }
+
+        public void Rest()
+        {
+            this.Sleep -= 50;
+            Console.WriteLine("{0} is well rested", this.Name);
+        } 
 
             
 

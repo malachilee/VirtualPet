@@ -69,45 +69,69 @@ namespace VirtualPet
         public void Tick()// Tick Method
         {
             this.Age++;
-            if(Age > 20)
+            this.Hunger += 6;
+            this.Thrist += 6;
+            this.Sleep += 8;
+            if(this.Age > 20)
               {
                 Console.WriteLine("{0} died from old age.", this.Name);
               }
-            this.Hunger += 6;
-            if(Hunger == 100)
+           
+            if(this.Hunger >= 100)
               {
                 Console.WriteLine("{0} died from starvation.", this.Name);
               }
-            this.Thrist += 10;
-            if(Thrist == 100)
+            
+            if(this.Thrist >= 100)
               {
                 Console.WriteLine("{0} died from dehydration.", this.Name);
               }
-            this.Sleep += 8;
-            if(Sleep == 100)
+            
+            if(this.Sleep >= 100)
               {
                 Console.WriteLine("{0} died from sleep deprivation.", this.Name);
               }
         }
-            
 
         public void Feed()
         {
-            this.Hunger -= 30;
-            this.Thrist += 20;
+            this.Tick();
+            this.Hunger -= 40;
+            this.Thrist += 10;
             Console.WriteLine("{0} says thanks, that tasted great!", this.Name);
+            Console.WriteLine();
+            Console.WriteLine("{0}s age now is: {1}", this.Name, this.Age);
+            Console.WriteLine("{0}s Hunger level now is: {1}", this.Name, this.Hunger);
+            Console.WriteLine("{0}s Thirst level now is: {1}", this.Name, this.Thrist);
+            Console.WriteLine("{0}s Sleep level now is: {1}", this.Name, this.Sleep);
+
         }
 
         public void GiveWater()
         {
+            this.Tick();
             this.Thrist -= 50;
             Console.WriteLine("{0} says that was refreshing!", this.Name);
+            Console.WriteLine();
+            Console.WriteLine("{0}s age now is: {1}", this.Name, this.Age);
+            Console.WriteLine("{0}s Hunger level now is: {1}", this.Name, this.Hunger);
+            Console.WriteLine("{0}s Thirst level now: {1}", this.Name, this.Thrist);
+            Console.WriteLine("{0}s Sleep level now is: {1}", this.Name, this.Sleep);
         }
 
         public void Rest()
         {
+            this.Tick();
             this.Sleep -= 50;
+            this.Hunger += 20;
+            this.Thrist += 20;
             Console.WriteLine("{0} is well rested", this.Name);
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("{0}s age now is: {1}", this.Name, this.Age);
+            Console.WriteLine("{0}s Hunger level now is: {1}", this.Name, this.Hunger);
+            Console.WriteLine("{0}s Thirst level now: {1}", this.Name, this.Thrist);
+            Console.WriteLine("{0}s Sleep level now is: {1}", this.Name, this.Sleep);
         } 
 
             

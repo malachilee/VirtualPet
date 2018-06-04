@@ -69,48 +69,28 @@ namespace VirtualPet
         public void Tick()// Tick Method
         {
             this.Age++;
-            this.Hunger += 6;
-            this.Thrist += 6;
-            this.Sleep += 8;
-            if(this.Age > 20)
-              {
-                Console.WriteLine("{0} died from old age.", this.Name);
-              }
-           
-            if(this.Hunger >= 100)
-              {
-                Console.WriteLine("{0} died from starvation.", this.Name);
-              }
-            
-            if(this.Thrist >= 100)
-              {
-                Console.WriteLine("{0} died from dehydration.", this.Name);
-              }
-            
-            if(this.Sleep >= 100)
-              {
-                Console.WriteLine("{0} died from sleep deprivation.", this.Name);
-              }
+            this.Hunger += 4;
+            this.Thrist += 4;
+            this.Sleep += 5;
         }
 
         public void Feed()
         {
             this.Tick();
-            this.Hunger -= 40;
-            this.Thrist += 10;
+            this.Hunger -= 30;
+            this.Thrist += 5;
             Console.WriteLine("{0} says thanks, that tasted great!", this.Name);
             Console.WriteLine();
             Console.WriteLine("{0}s age now is: {1}", this.Name, this.Age);
             Console.WriteLine("{0}s Hunger level now is: {1}", this.Name, this.Hunger);
             Console.WriteLine("{0}s Thirst level now is: {1}", this.Name, this.Thrist);
             Console.WriteLine("{0}s Sleep level now is: {1}", this.Name, this.Sleep);
-
         }
 
         public void GiveWater()
         {
             this.Tick();
-            this.Thrist -= 50;
+            this.Thrist -= 40;
             Console.WriteLine("{0} says that was refreshing!", this.Name);
             Console.WriteLine();
             Console.WriteLine("{0}s age now is: {1}", this.Name, this.Age);
@@ -122,9 +102,9 @@ namespace VirtualPet
         public void Rest()
         {
             this.Tick();
-            this.Sleep -= 50;
-            this.Hunger += 20;
-            this.Thrist += 20;
+            this.Sleep -= 40;
+            this.Hunger += 10;
+            this.Thrist += 10;
             Console.WriteLine("{0} is well rested", this.Name);
             Console.WriteLine();
             Console.WriteLine();
@@ -133,6 +113,17 @@ namespace VirtualPet
             Console.WriteLine("{0}s Thirst level now: {1}", this.Name, this.Thrist);
             Console.WriteLine("{0}s Sleep level now is: {1}", this.Name, this.Sleep);
         } 
+
+        public void DoNothing()
+        {
+            this.Tick();
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("{0}s age now is: {1}", this.Name, this.Age);
+            Console.WriteLine("{0}s Hunger level now is: {1}", this.Name, this.Hunger);
+            Console.WriteLine("{0}s Thirst level now: {1}", this.Name, this.Thrist);
+            Console.WriteLine("{0}s Sleep level now is: {1}", this.Name, this.Sleep);
+        }
 
             
 

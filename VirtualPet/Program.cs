@@ -24,31 +24,34 @@ namespace VirtualPet
             pet.Thrist = initThirst;
             pet.Sleep = initSleep;
 
-            Console.WriteLine("Welcome to the VirtualPet");
+            Console.WriteLine("!!Welcome to VirtualPet!!");
             Console.WriteLine();
-            Console.WriteLine("Please type Yes to start the game");
+            Console.WriteLine("The object of this game is to keep your pets health points between 0 and 100.");
+            Console.WriteLine();
+            Console.WriteLine("Please type Start to play the game");
             string userResponse = Console.ReadLine().ToLower();
-
-            Console.WriteLine("Type your new pets name bellow!");
+            Console.WriteLine();
+            Console.WriteLine("Type your new pets name below!");
             pet.Name = Console.ReadLine();
             Console.Clear();
 
 
             Console.WriteLine("Your new pet {0} is ready to meet you!", pet.Name);
-            Console.WriteLine("Age of your pet: {0}", pet.Age);
-            Console.WriteLine("Your pets Hunger level: {0}", pet.Hunger);
-            Console.WriteLine("Your pets Thirst level: {0}", pet.Thrist);
-            Console.WriteLine("Your pets sleep level: {0}", pet.Sleep);
+            Console.WriteLine("{0}s Age: {1}", pet.Name, pet.Age);
+            Console.WriteLine("{0}s Hunger level: {1}", pet.Name, pet.Hunger);
+            Console.WriteLine("{0}s Thirst level: {1}", pet.Name, pet.Thrist);
+            Console.WriteLine("{0}s Sleepiness level: {1}", pet.Name, pet.Sleep);
             Console.WriteLine();
             Console.WriteLine();
-            while (userResponse == ("yes"))
+            while (userResponse == ("start"))
             {
                 if(pet.Age > 25)
                 {
                     Console.Clear();
                     Console.WriteLine("{0} died from old age.", pet.Name);
+                    break;
                 }
-
+                  
 
                 if (pet.Hunger >= 100 || pet.Hunger <= 0) 
                 {
